@@ -1,22 +1,23 @@
-
 services:
   web-003:
-    image: php:8.4-apache
+    image: php:8.2-apache
     container_name: web-003-jonathan
     ports:
       - "8085:80"
     volumes:
       - .:/var/www/html
+    depends_on:
+      - mysql-003
+
   mysql-003:
-    image: mysql:9.5.0
+    build: .
     container_name: mysql-003-jonathan
     environment:
-      MYSQL_ROOT_PASSWORD: ${X_MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${X_MYSQL_DATABASE}
-      MYSQL_USER: ${X_MYSQL_USER}
-      MYSQL_PASSWORD: ${X_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3366:3306"
-    command: ["mysqli", "-u${X_MYSQL_USER}", "-p${X_MYSQL_PASSWORD}"]
     volumes:
       - ./db:/var/lib/mysql
