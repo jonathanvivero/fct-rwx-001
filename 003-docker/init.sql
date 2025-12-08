@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- Datos 
 INSERT INTO users (username, password, email) VALUES
 ('admin', 'ad123', 'admin@test.com'),
-('rosario', 'ro456', 'rosario@test.com');
-('aznar', 'az789', 'aznar@test.com');
+('rosario', 'ro456', 'rosario@test.com'),
+('aznar', 'az789', 'aznar@test.com'),
 ('dev', 'dev10', 'dev@test.com');
 
