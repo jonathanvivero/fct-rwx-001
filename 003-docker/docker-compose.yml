@@ -1,12 +1,15 @@
-
 services:
+
   web-003:
-    image: php:8.4-apache
+    build:
+      context: .
+      dockerfile: Dockerfile-php
     container_name: web-003-jonathan
     ports:
       - "8085:80"
     volumes:
       - .:/var/www/html
+
   mysql-003:
     image: mysql:9.5.0
     container_name: mysql-003-jonathan
