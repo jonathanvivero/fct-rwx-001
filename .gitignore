@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 # Ignore video files/folders
 Videos/
 .vscode/
+
+# Ignorar la base de datos de MySQL
+003-docker/db/
